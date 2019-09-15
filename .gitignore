@@ -1,0 +1,7 @@
+.idea
+target/
+project/project/
+project/target/
+target/
+app/client/target
+app/server/target
