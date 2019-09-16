@@ -5,7 +5,8 @@ import akka.http.scaladsl.Http
 import akka.http.scaladsl.model._
 import akka.http.scaladsl.server.Directives._
 import akka.stream.ActorMaterializer
-
+import scala.concurrent.Await
+import scala.concurrent.duration._
 import scala.io.StdIn
 
 object PointProducer {
@@ -27,8 +28,8 @@ object PointProducer {
 
     println(s"Server online at http://localhost:8383/\nPress RETURN to stop...")
     StdIn.readLine() // let it run until user presses return
-    bindingFuture
-      .flatMap(_.unbind()) // trigger unbinding from the port
-      .onComplete(_ => system.terminate()) // and shutdown when done
+
+    Await.result(bindingFuture, 5.seconds)
+    Await.result(system.terminate(), 5.seconds)
   }
 }

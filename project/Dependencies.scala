@@ -2,11 +2,11 @@ import sbt._
 import org.portablescala.sbtplatformdeps.PlatformDepsPlugin.autoImport._
 
 object Dependencies {
-  val akkaVersion = "2.5.23"
-  val akkaHttpVersion = "10.1.9"
-  val scalaTestVersion = "3.0.8"
-  val scalaJsVersion = "0.9.7"
-  val scalaTagsVersion = "0.7.0"
+  private val akkaVersion = "2.5.23"
+  private val akkaHttpVersion = "10.1.9"
+  private val scalaTestVersion = "3.0.8"
+  private val scalaJsVersion = "0.9.7"
+  private val scalaTagsVersion = "0.7.0"
 
   lazy val scalaTest = "org.scalatest" %% "scalatest" % scalaTestVersion
   lazy val akkaHttp = "com.typesafe.akka" %% "akka-http" % akkaHttpVersion
